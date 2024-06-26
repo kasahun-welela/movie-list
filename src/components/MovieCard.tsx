@@ -8,8 +8,18 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+interface Movie {
+  imdbID: string;
+  Title: string;
+  Poster: string;
+  imdbRating: string;
+  Runtime: string;
+  Genre: string;
+  Plot: string;
+}
+
 function MovieCard(props: { movieName: string }) {
-  const [movieData, setMovieData] = useState([]);
+  const [movieData, setMovieData] = useState<Movie[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
