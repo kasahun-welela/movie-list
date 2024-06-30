@@ -4,7 +4,7 @@ import React from "react";
 function page() {
   return (
     <>
-      <Header />
+      <Header title="My Watchlist" link="/" action="Search for movies" />
     </>
   );
 }

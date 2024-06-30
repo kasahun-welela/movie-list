@@ -12,7 +12,7 @@ export default function Home() {
 
   return (
     <>
-      <Header />
+      <Header title="Find your film" link="watchlist" action="My Watchlist" />
       <div className="relative w-[90%] md:w-[50%] mx-auto -mt-6">
         <i className="ri-search-2-line text-primary font-bold absolute top-1/2 left-2 transform -translate-y-1/2"></i>
         <Input
