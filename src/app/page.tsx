@@ -1,14 +1,15 @@
-'use client'
-import { useState } from 'react'; 
+"use client";
+import { useState } from "react";
 import Header from "@/components/Header";
 import MovieCard from "@/components/MovieCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import "remixicon/fonts/remixicon.css";
+import Message from "@/components/Message";
 
 export default function Home() {
-  const [movieName, setMovieName] = useState(''); 
- 
+  const [movieName, setMovieName] = useState("");
+
   return (
     <>
       <Header />
@@ -19,11 +20,11 @@ export default function Home() {
           type="text"
           className="pl-10  py-2 border rounded-lg w-full"
           value={movieName}
-          onChange={(e) => setMovieName(e.target.value)} 
+          onChange={(e) => setMovieName(e.target.value)}
         />
       </div>
 
-    {movieName && <MovieCard movieName={movieName} />}
+      {movieName ? <MovieCard movieName={movieName} /> : <Message />}
     </>
   );
 }
