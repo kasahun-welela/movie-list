@@ -21,7 +21,7 @@ interface Movie {
   Plot: string;
 }
 
-function page() {
+function WatchList() {
   const [movieData, setMovieData] = useState<Movie[]>([]);
 
   useEffect(() => {
@@ -89,4 +89,4 @@ function page() {
   );
 }
 
-export default page;
+export default WatchList;
