@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 interface Movie {
   imdbID: string;
@@ -20,7 +22,20 @@ interface Movie {
 }
 
 function page() {
-  const movieData: Movie[] = JSON.parse(localStorage.getItem("movies") || "[]");
+  const [movieData, setMovieData] = useState<Movie[]>([]);
+
+  useEffect(() => {
+    const storedMovies = localStorage.getItem("movies");
+    if (storedMovies) {
+      setMovieData(JSON.parse(storedMovies));
+    }
+  }, []);
+  const removeMovie = (id: string) => {
+    const filteredMovie = movieData.filter((movie) => movie.imdbID !== id);
+    setMovieData(filteredMovie);
+    localStorage.setItem("movies", JSON.stringify(filteredMovie));
+    toast.success("Movie removed Successfully");
+  };
 
   return (
     <>
@@ -47,7 +62,7 @@ function page() {
                 </div>
                 <CardDescription className="flex max-w-sm gap-3">
                   <p>{movie.Runtime}</p> <p>{movie.Genre}</p>{" "}
-                  <p>
+                  <p onClick={() => removeMovie(movie.imdbID)}>
                     <i className="ri-delete-bin-6-line"></i>
                     Watchlist
                   </p>
