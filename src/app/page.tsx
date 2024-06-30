@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Header from "@/components/Header";
 import MovieCard from "@/components/MovieCard";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import "remixicon/fonts/remixicon.css";
 import Message from "@/components/Message";
